@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bandeira do Brasil</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+        }
+
+        .brasil-flag {
+            position: relative;
+            background-color: #16b83e;
+            width: 250px;
+            height: 150px;
+        }
+
+        .brasil-flag .losangue::before,
+        .brasil-flag .losangue::after {
+            position: absolute
+        }
+
+        .brasil-flag .losangue {
+            width: 100%;
+            height: 100%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .brasil-flag .losangue::before,
+        .brasil-flag .losangue::after {
+            content: '';
+            width: 0;
+            height: 0;
+            left: 20px;
+            right: 20px;
+        }
+
+        .brasil-flag .losangue::before {
+            border-left: 105px solid transparent;
+            border-right: 105px solid transparent;
+            border-bottom: 65px solid #ffe11f;
+            top: 10px;
+        }
+
+        .brasil-flag .losangue::after {
+            border-left: 105px solid transparent;
+            border-right: 105px solid transparent;
+            border-top: 65px solid #ffe11f;
+            bottom: 10px;
+        }
+
+        .brasil-flag .circle {
+            overflow: hidden;
+            z-index: 2;
+            background-color: #1651b8;
+            height: 80px;
+            width: 80px;
+            margin-left: -40px;
+            margin-top: -40px;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+        }
+
+        .brasil-flag .circle,
+        .brasil-flag .circle::before,
+        .brasil-flag .circle::after {
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+        }
+
+        .brasil-flag .circle::before,
+        .brasil-flag .circle::after {
+            width: 90px;
+            height: 90px;
+            -ms-transform: rotate(14deg);
+            -webkit-transform: rotate(14deg);
+            transform: rotate(14deg);
+        }
+
+        .brasil-flag .circle::before {
+            z-index: 3;
+            content: '';
+            margin-top: -20px;
+            margin-left: -45px;
+            background: #ffff;
+        }
+
+        .brasil-flag .circle::after {
+            z-index: 4;
+            content: '';
+            margin-top: -10px;
+            margin-left: -45px;
+            background-color: #1651b8;
+        }
+
+        .bandeiras-dificeis {
+            background-color: #B4B9C3;
+            margin: 10px;
+            padding: .9rem;
+            border-radius: 1%;
+            display: flex;
+            width: 33%;
+            height: auto;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 1px 11px 17px -2px #828282c7;
+        }
+
+        .bandeiras-dificeis .main-title {
+            color: #000;
+            margin: 0px;
+            text-align: center;
+        }
+
+        .main-articles {
+            margin-top: 10px;
+            background-color: #F0F0F0;
+            padding: 15px 15px 15px 15px;
+            border-radius: 2%;
+            box-shadow: 1px 11px 17px -2px #828282c7;
+        }
+
+        .main-title.-sub {
+            font-size: 15px;
+            padding-bottom: 5px;
+        }
+
+        .dinamarca-flag {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            background-color: #fff;
+            width: 250px;
+            height: 150px;
+        }
+
+        .fileira {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .dinamarca-flag .retangulo.-menor {
+            background-color: red;
+            width: 80px;
+            height: 65px;
+        }
+
+        .dinamarca-flag .retangulo.-maior {
+            background-color: red;
+            width: 150px;
+            height: 65px;
+        }
+
+        .ucrania-flag {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            background-color: #fff;
+            width: 250px;
+            height: 150px;
+        }
+
+        .ucrania-flag .faixa {
+            width: 100%;
+            height: 50%;
+        }
+
+        .ucrania-flag .faixa.-azul {
+            background-color: #3e76fd;
+        }
+
+        .ucrania-flag .faixa.-amarela {
+            background-color: #e5cc2c;
+        }
+
+        .russia-flag {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            background-color: #fff;
+            width: 250px;
+            height: 150px;
+        }
+
+        .russia-flag .faixa {
+            width: 100%;
+            height: 50%;
+        }
+
+        .russia-flag .faixa.-azul {
+            background-color: #3e76fd;
+        }
+
+        .russia-flag .faixa.-branca {
+            background-color: #fff;
+        }
+
+        .russia-flag .faixa.-vermelha {
+            background-color: red;
+        }
+
+        .barbados-flag {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            position: relative;
+            background-color: #fff;
+            width: 250px;
+            height: 150px;
+        }
+
+        .barbados-flag .faixa {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .barbados-flag .faixa.-azul {
+            background-color: #023eca;
+        }
+
+        .barbados-flag .faixa.-amarela {
+            background-color: #ffc400;
+        }
+
+        .img-barbados {
+            width: 80px;
+            height: 80px;
+        }
+
+        .libano-flag {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            background-color: #fff;
+            width: 250px;
+            height: 150px;
+        }
+
+        .libano-flag .faixa {
+            width: 100%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .libano-flag .faixa.-vermelha {
+            background-color: red;
+        }
+
+        .libano-flag .faixa.-amarela {
+            background-color: #ffc400;
+        }
+
+        .img-libano {
+            width: 80px;
+            height: 80px;
+        }
+
+        .eua-flag {
+            position: relative;
+            width: 250px;
+            height: 150px;
+            background: linear-gradient(to bottom, #B22234 50%, #fff 50%) #B22234;
+            background-size: 100% 23px;
+        }
+
+        .usa{
+            background-color: #3C3B6E;
+            width: 40%;
+            height: 53.2%;
+            left: 0;
+            top: 0;
+        }
+
+        .usa .star:before, .usa .star:after {
+            content: "\2605";
+            font-size: 10px;
+            color: #fff;
+            position: absolute;
+        }
+
+        .usa .star-01:before{left:2%;top:0}.usa .star-01:after{left:2%;top:11%}.usa .star-02:before{left:2%;top:22%}.usa .star-02:after{left:2%;top:33%}.usa .star-03:before{left:2%;top:44%}.usa .star-03:after{left:5%;top:5%}.usa .star-04:before{left:5%;top:16%}.usa .star-04:after{left:5%;top:27%}.usa .star-05:before{left:5%;top:38%}.usa .star-05:after{left:8.5%;top:0}.usa .star-06:before{left:8.5%;top:11%}.usa .star-06:after{left:8.5%;top:22%}.usa .star-07:before{left:8.5%;top:33%}.usa .star-07:after{left:8.5%;top:44%}.usa .star-08:before{left:12%;top:5%}.usa .star-08:after{left:12%;top:16%}.usa .star-09:before{left:12%;top:27%}.usa .star-09:after{left:12%;top:38%}.usa .star-10:before{left:15%;top:0}.usa .star-10:after{left:15%;top:11%}.usa .star-11:before{left:15%;top:22%}.usa .star-11:after{left:15%;top:33%}.usa .star-12:before{left:15%;top:44%}.usa .star-12:after{left:18%;top:5%}.usa .star-13:before{left:18%;top:16%}.usa .star-13:after{left:18%;top:27%}.usa .star-14:before{left:18%;top:38%}.usa .star-14:after{left:21.5%;top:0}.usa .star-15:before{left:21.5%;top:11%}.usa .star-15:after{left:21.5%;top:22%}.usa .star-16:before{left:21.5%;top:33%}.usa .star-16:after{left:21.5%;top:44%}.usa .star-17:before{left:25%;top:5%}.usa .star-17:after{left:25%;top:16%}.usa .star-18:before{left:25%;top:27%}.usa .star-18:after{left:25%;top:38%}.usa .star-19:before{left:28%;top:0}.usa .star-19:after{left:28%;top:11%}.usa .star-20:before{left:28%;top:22%}.usa .star-20:after{left:28%;top:33%}.usa .star-21:before{left:28%;top:44%}.usa .star-21:after{left:31.5%;top:5%}.usa .star-22:before{left:31.5%;top:16%}.usa .star-22:after{left:31.5%;top:27%}.usa .star-23:before{left:31.5%;top:38%}.usa .star-23:after{left:34.5%;top:0}.usa .star-24:before{left:34.5%;top:11%}.usa .star-24:after{left:34.5%;top:22%}.usa .star-25:before{left:34.5%;top:33%}.usa .star-25:after{left:34.5%;top:44%}
+
+        .grecia-flag {
+            position: relative;
+            width: 250px;
+            height: 150px;
+            background: linear-gradient(to bottom, #1291fa 50%, #fff 50%) #1291fa;
+            background-size: 100% 33.5px;
+        }
+
+        .grecia{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #fff;
+            width: 40%;
+            height: 84px;
+            left: 0;
+            top: 0;
+        }
+
+        .grecia .quadrado {
+            width: 35%;
+            height: 34px;
+            background-color: #1291fa;
+        }
+    </style>
+</head>
+
+<body>
+    <article class="bandeiras-dificeis">
+        <h1 class="main-title">Bandeiras faceis</h1>
+        <article class="main-articles">
+            <h2 class="main-title -sub">Dinamarca</h2>
+            <div class="dinamarca-flag">
+                <div class="fileira">
+                    <div class="retangulo -menor"></div>
+                    <div class="retangulo -maior"></div>
+                </div>
+                <div class="fileira">
+                    <div class="retangulo -menor"></div>
+                    <div class="retangulo -maior"></div>
+                </div>
+            </div>
+        </article>
+
+        <article class="main-articles">
+            <h2 class="main-title -sub">Ucrânia</h2>
+            <div class="ucrania-flag">
+                <div class="faixa -azul"></div>
+                <div class="faixa -amarela"></div>
+            </div>
+        </article>
+
+        <article class="main-articles">
+            <h2 class="main-title -sub">Russia</h2>
+            <div class="russia-flag">
+                <div class="faixa -branca"></div>
+                <div class="faixa -azul"></div>
+                <div class="faixa -vermelha"></div>
+            </div>
+        </article>
+    </article>
+
+    <article class="bandeiras-dificeis">
+        <h1 class="main-title">Bandeiras medianas</h1>
+        <article class="main-articles">
+            <h2 class="main-title -sub">Barbados</h2>
+            <div class="barbados-flag">
+                <div class="faixa -azul"></div>
+                <div class="faixa -amarela">
+                    <img class="img-barbados"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Barbados_trident.svg/220px-Barbados_trident.svg.png"
+                        alt="">
+                </div>
+                <div class="faixa -azul"></div>
+            </div>
+        </article>
+
+        <article class="main-articles">
+            <h2 class="main-title -sub">Líbano</h2>
+            <div class="libano-flag">
+                <div class="faixa -vermelha"></div>
+                <div class="faixa -branca">
+                    <img class="img-libano" src="cedrus.png" alt="">
+                </div>
+                <div class="faixa -vermelha"></div>
+            </div>
+        </article>
+    </article>
+
+    <article class="bandeiras-dificeis">
+        <h1 class="main-title">Bandeiras dificeis</h1>
+        <article class="main-articles">
+            <h2 class="main-title -sub">Brasil</h2>
+            <div class="brasil-flag">
+                <div class="losangue"></div>
+                <div class="circle"></div>
+            </div>
+        </article>
+        <article class="main-articles">
+            <h2 class="main-title -sub">EUA</h2>
+            <div class="eua-flag">
+                <div class="usa">
+                    <div class="star star-01"></div>
+                    <div class="star star-02"></div>
+                    <div class="star star-03"></div>
+                    <div class="star star-04"></div>
+                    <div class="star star-05"></div>
+                    <div class="star star-06"></div>
+                    <div class="star star-07"></div>
+                    <div class="star star-08"></div>
+                    <div class="star star-09"></div>
+                    <div class="star star-10"></div>
+                    <div class="star star-11"></div>
+                    <div class="star star-12"></div>
+                    <div class="star star-13"></div>
+                    <div class="star star-14"></div>
+                    <div class="star star-15"></div>
+                    <div class="star star-16"></div>
+                    <div class="star star-17"></div>
+                    <div class="star star-18"></div>
+                    <div class="star star-19"></div>
+                    <div class="star star-20"></div>
+                    <div class="star star-21"></div>
+                    <div class="star star-22"></div>
+                    <div class="star star-23"></div>
+                    <div class="star star-24"></div>
+                    <div class="star star-25"></div>
+                </div>
+            </div>
+        </article>
+
+        <article class="main-articles">
+            <h2 class="main-title -sub">Grécia</h2>
+            <div class="grecia-flag">
+                <div class="grecia">
+                    <div class="fileira">
+                        <div class="quadrado"></div>
+                        <div class="quadrado"></div>
+                    </div>
+                    <div class="fileira">
+                        <div class="quadrado"></div>
+                        <div class="quadrado"></div>  
+                    </div>
+                </div>
+            </div>
+        </article>
+    </article>
+
+</body>
+
+</html>
